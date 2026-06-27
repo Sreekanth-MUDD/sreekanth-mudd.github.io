@@ -5,6 +5,16 @@ let width = 0;
 let height = 0;
 let pointer = { x: 0, y: 0, active: false };
 
+// Always start from top after refresh
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
+
+window.addEventListener("load", () => {
+    history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+});
+
 function resize() {
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
   width = window.innerWidth;
